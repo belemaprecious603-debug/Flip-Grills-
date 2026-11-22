@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171513">
+  <meta name="description" content="Fresh charcoal grilled croaker, catfish, barbecue chicken and signature spicy sauce at Flip Grills on Ada-George Road, Port Harcourt.">
+  <title>Flip Grills | Charcoal Grilled Fish & Barbecue in Port Harcourt</title>
+
+  <!-- Tailwind CSS via CDN: suitable for a simple static GitHub Pages demo. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#171513',
+            charcoal: '#211e1a',
+            panel: '#2a2621',
+            ember: '#f59e0b',
+            flame: '#fb923c',
+            cream: '#fff7ed',
+            muted: '#b8ada0'
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 18px 60px rgba(245, 158, 11, .14)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    body { background: #171513; }
+    .hero-wash {
+      background:
+        linear-gradient(90deg, rgba(23,21,19,.98) 0%, rgba(23,21,19,.88) 45%, rgba(23,21,19,.45) 100%),
+        linear-gradient(0deg, rgba(23,21,19,.7), transparent 55%),
+        url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1900&q=82') center 52% / cover;
+    }
+    .food-image { background-size: cover; background-position: center; }
+    .modal-scroll { max-height: min(82vh, 720px); overflow-y: auto; }
+    .focus-ring:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body class="font-sans text-cream antialiased selection:bg-ember selection:text-ink">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-ink/95 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <a href="#home" class="focus-ring flex items-center gap-3 rounded-lg" aria-label="Flip Grills home">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-ember text-ink shadow-glow">
+          <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3c1.8 3.1-.7 4.5 1.3 6.4 1.4-1 2-2.2 2.1-3.2 2.5 2.1 4 4.6 4 7.3a7.4 7.4 0 0 1-14.8 0c0-2.5 1.2-4.8 3.7-7 .1 2 1 3.3 2.4 4.1C11.8 8.8 10.7 6.3 12 3Z"/><path d="M9.4 15.1c0 1.6 1.1 2.8 2.6 2.8s2.6-1.2 2.6-2.8c0-.9-.5-1.7-1.3-2.4-.2 1-.7 1.5-1.4 1.8-.6-.5-.8-1.2-.8-1.9-1.1.8-1.7 1.6-1.7 2.5Z"/></svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-lg font-black tracking-[.12em]">FLIP <span class="text-ember">GRILLS</span></span>
+          <span class="block text-[9px] font-semibold uppercase tracking-[.25em] text-muted">Fire. Flavour. Freshness.</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-white/75 md:flex" aria-label="Main navigation">
+        <a class="transition hover:text-ember" href="#menu">Menu</a>
+        <a class="transition hover:text-ember" href="#why-us">Why Flip Grills</a>
+        <a class="transition hover:text-ember" href="#reviews">Reviews</a>
+        <a class="transition hover:text-ember" href="#visit">Find Us</a>
+      </nav>
+
+      <a href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="focus-ring hidden rounded-full bg-ember px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-amber-300 sm:inline-flex">Order on WhatsApp <span aria-hidden="true" class="ml-2">↗</span></a>
+      <button id="menu-toggle" class="focus-ring inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="menu-icon" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="hidden border-t border-white/10 bg-ink px-4 py-4 md:hidden" aria-label="Mobile navigation">
+      <div class="mx-auto flex max-w-7xl flex-col gap-1 text-sm font-medium">
+        <a class="rounded-lg px-3 py-3 hover:bg-white/5" href="#menu">Menu</a>
+        <a class="rounded-lg px-3 py-3 hover:bg-white/5" href="#why-us">Why Flip Grills</a>
+        <a class="rounded-lg px-3 py-3 hover:bg-white/5" href="#reviews">Reviews</a>
+        <a class="rounded-lg px-3 py-3 hover:bg-white/5" href="#visit">Find Us</a>
+        <a class="mt-2 rounded-full bg-ember px-5 py-3 text-center font-bold text-ink" target="_blank" rel="noopener noreferrer" href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20place%20an%20order.">Order on WhatsApp ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero-wash relative isolate flex min-h-[660px] items-center sm:min-h-[710px]">
+      <div class="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div class="max-w-3xl">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-ember/40 bg-ink/60 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-amber-200">
+            <span class="h-2 w-2 rounded-full bg-ember"></span> Port Harcourt, get ready to eat
+          </div>
+          <h1 class="text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-7xl">Port Harcourt’s Finest <span class="text-ember">Charcoal Grilled Fish</span> &amp; Barbecue</h1>
+          <p class="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">Sizzling for 5+ flavorful years on Ada-George Road. Freshly grilled croaker, catfish, crispy sweet potato fries &amp; signature spicy sauce.</p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="focus-ring inline-flex items-center justify-center rounded-full bg-ember px-7 py-4 text-sm font-extrabold text-ink shadow-glow transition hover:-translate-y-0.5 hover:bg-amber-300">Order on WhatsApp <span class="ml-2 text-lg" aria-hidden="true">↗</span></a>
+            <a href="#menu" class="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-7 py-4 text-sm font-bold text-white transition hover:border-ember hover:bg-white/10">See Menu <span class="ml-2" aria-hidden="true">↓</span></a>
+          </div>
+          <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-white/15 pt-6 text-sm text-white/70">
+            <div class="flex items-center gap-2"><span class="text-lg text-ember">★★★★★</span><span><strong class="text-white">4.7/5</strong> Google rating</span></div>
+            <div class="flex items-center gap-2"><span class="text-ember">🔥</span><span>Charcoal-fired flavour</span></div>
+            <div class="flex items-center gap-2"><span class="text-ember">◷</span><span>Open daily, 3 PM – 10 PM</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pointer-events-none absolute bottom-0 right-0 -z-10 h-40 w-2/3 bg-gradient-to-t from-ember/10 to-transparent blur-2xl"></div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p class="mb-3 text-xs font-extrabold uppercase tracking-[.24em] text-ember">Straight from the grill</p>
+            <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">The <span class="text-ember">Signature</span> Menu</h2>
+            <p class="mt-3 max-w-xl text-sm leading-7 text-muted sm:text-base">Big flavour, fresh ingredients and that unmistakable charcoal finish.</p>
+          </div>
+          <p class="text-xs text-muted">Prices in Nigerian naira (₦)</p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-ember/50">
+            <div class="food-image relative h-52" style="background-image:url('https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=800&q=78')" role="img" aria-label="Fresh grilled fish served with sides">
+              <span class="absolute left-4 top-4 rounded-full bg-ember px-3 py-1 text-[10px] font-black uppercase tracking-wider text-ink">House favourite</span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3"><h3 class="text-lg font-extrabold text-white">Charcoal Grilled Croaker <span class="text-ember">(Max)</span></h3></div>
+              <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Fresh whole croaker, sweet potato fries, coleslaw &amp; extra signature sauce.</p>
+              <div class="mt-5 flex items-center justify-between gap-3"><span class="text-xl font-black text-ember">₦15,000</span><a class="focus-ring rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white transition hover:bg-ember hover:text-ink" target="_blank" rel="noopener noreferrer" href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20order%20the%20Charcoal%20Grilled%20Croaker%20(Max).">Order Now ↗</a></div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-ember/50">
+            <div class="food-image h-52" style="background-image:url('https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=800&q=78')" role="img" aria-label="Charcoal-grilled fish with vegetables"></div>
+            <div class="p-5">
+              <h3 class="text-lg font-extrabold text-white">Charcoal Grilled Croaker <span class="text-ember">(Large)</span></h3>
+              <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Whole grilled croaker served with crispy sweet potato chips, coleslaw &amp; pepper sauce.</p>
+              <div class="mt-5 flex items-center justify-between gap-3"><span class="text-xl font-black text-ember">₦12,000</span><a class="focus-ring rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white transition hover:bg-ember hover:text-ink" target="_blank" rel="noopener noreferrer" href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20order%20the%20Charcoal%20Grilled%20Croaker%20(Large).">Order Now ↗</a></div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-ember/50">
+            <div class="food-image h-52" style="background-image:url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&fit=crop&w=800&q=78')" role="img" aria-label="Spicy grilled fish ready to serve"></div>
+            <div class="p-5">
+              <h3 class="text-lg font-extrabold text-white">Charcoal Grilled Catfish</h3>
+              <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Spicy charcoal-grilled catfish, coleslaw &amp; our house sauce.</p>
+              <div class="mt-5 flex items-center justify-between gap-3"><span class="text-xl font-black text-ember">₦15,000</span><a class="focus-ring rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white transition hover:bg-ember hover:text-ink" target="_blank" rel="noopener noreferrer" href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20order%20the%20Charcoal%20Grilled%20Catfish.">Order Now ↗</a></div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-ember/50">
+            <div class="food-image h-52" style="background-image:url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=800&q=78')" role="img" aria-label="Barbecue platter for sharing"></div>
+            <div class="p-5">
+              <span class="mb-2 inline-block text-[10px] font-extrabold uppercase tracking-[.18em] text-ember">Made for sharing</span>
+              <h3 class="text-lg font-extrabold text-white">Barbecue Chicken &amp; Platters</h3>
+              <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Custom group &amp; family platters for dine-in, takeout and catering.</p>
+              <div class="mt-5 flex items-center justify-between gap-3"><span class="text-sm font-bold text-ember">Custom quote</span><a class="focus-ring rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white transition hover:bg-ember hover:text-ink" target="_blank" rel="noopener noreferrer" href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20please%20send%20me%20your%20barbecue%20chicken%20and%20platter%20options.">Order Now ↗</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="mt-9 rounded-2xl border border-ember/20 bg-ember/5 p-5 text-center sm:p-7">
+          <p class="text-sm text-white/80">Craving something for the whole crew?</p>
+          <a href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20ask%20about%20family%20platters%20and%20catering." target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center font-bold text-ember hover:text-amber-200">Ask about group platters &amp; catering <span class="ml-2">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why us -->
+    <section id="why-us" class="border-y border-white/5 bg-charcoal py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-12 max-w-2xl text-center">
+          <p class="mb-3 text-xs font-extrabold uppercase tracking-[.24em] text-ember">The Flip Grills feeling</p>
+          <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Good food brings people <span class="text-ember">together.</span></h2>
+          <p class="mt-4 text-sm leading-7 text-muted sm:text-base">From a quick fish fix to a table full of friends, we bring the fire and flavour every day.</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl border border-white/10 bg-ink/60 p-6"><div class="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-ember/10 text-2xl text-ember">🔥</div><h3 class="font-extrabold text-white">5+ Years of Quality</h3><p class="mt-2 text-sm leading-6 text-muted">Years of serving up fresh ingredients and memorable charcoal flavour.</p></div>
+          <div class="rounded-2xl border border-white/10 bg-ink/60 p-6"><div class="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-ember/10 text-2xl text-ember">☀</div><h3 class="font-extrabold text-white">Dine-in &amp; Outdoor</h3><p class="mt-2 text-sm leading-6 text-muted">Settle in, enjoy the atmosphere and make a meal of it.</p></div>
+          <div class="rounded-2xl border border-white/10 bg-ink/60 p-6"><div class="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-ember/10 text-2xl text-ember">🛵</div><h3 class="font-extrabold text-white">Takeout &amp; Delivery</h3><p class="mt-2 text-sm leading-6 text-muted">Take your favourites along or ask us about delivery options.</p></div>
+          <div class="rounded-2xl border border-white/10 bg-ink/60 p-6"><div class="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-ember/10 text-2xl text-ember">🎉</div><h3 class="font-extrabold text-white">Event Catering</h3><p class="mt-2 text-sm leading-6 text-muted">Custom platters and barbecue options for your special gathering.</p></div>
+        </div>
+
+        <div class="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-7 text-center text-ink sm:flex-row sm:px-9 sm:text-left">
+          <div><p class="text-sm font-bold uppercase tracking-[.16em]">Loved by local foodies</p><div class="mt-1 flex items-center justify-center gap-2 sm:justify-start"><span class="text-2xl tracking-widest">★★★★★</span><span class="text-3xl font-black">4.7<span class="text-lg">/5</span></span></div></div>
+          <p class="max-w-md text-sm font-medium leading-6 text-ink/80">A Google rating to be proud of. Come through and find your new favourite plate.</p>
+          <a href="#visit" class="focus-ring shrink-0 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-charcoal">Come taste it</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs font-extrabold uppercase tracking-[.24em] text-ember">A little love from the table</p>
+          <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Made to be <span class="text-ember">talked about.</span></h2>
+          <p class="mx-auto mt-3 max-w-xl text-xs leading-6 text-muted">Illustrative review copy for this website demo. Replace with verified customer reviews before publishing.</p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="rounded-2xl border border-white/10 bg-panel p-6">
+            <div class="flex items-center justify-between"><span class="text-lg tracking-widest text-ember" aria-label="5 out of 5 stars">★★★★★</span><span class="rounded-full border border-ember/30 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-amber-200">Sample review</span></div>
+            <p class="mt-5 text-base leading-7 text-white">“That signature pepper sauce is something else. It brings the perfect heat and makes every bite even better.”</p>
+            <div class="mt-6 border-t border-white/10 pt-4"><p class="font-bold text-white">A happy guest</p><p class="mt-1 text-xs text-muted">Sauce lover</p></div>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-panel p-6">
+            <div class="flex items-center justify-between"><span class="text-lg tracking-widest text-ember" aria-label="5 out of 5 stars">★★★★★</span><span class="rounded-full border border-ember/30 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-amber-200">Sample review</span></div>
+            <p class="mt-5 text-base leading-7 text-white">“The fish tastes fresh, the charcoal flavour comes through, and the portions make it a proper satisfying meal.”</p>
+            <div class="mt-6 border-t border-white/10 pt-4"><p class="font-bold text-white">A happy guest</p><p class="mt-1 text-xs text-muted">Grilled fish fan</p></div>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-panel p-6">
+            <div class="flex items-center justify-between"><span class="text-lg tracking-widest text-ember" aria-label="5 out of 5 stars">★★★★★</span><span class="rounded-full border border-ember/30 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-amber-200">Sample review</span></div>
+            <p class="mt-5 text-base leading-7 text-white">“Those sweet potato fries are crispy and so good. Add the coleslaw and sauce and you have a winning combo.”</p>
+            <div class="mt-6 border-t border-white/10 pt-4"><p class="font-bold text-white">A happy guest</p><p class="mt-1 text-xs text-muted">Side-dish enthusiast</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit & contact -->
+    <section id="visit" class="border-t border-white/5 bg-charcoal py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <div>
+            <p class="mb-3 text-xs font-extrabold uppercase tracking-[.24em] text-ember">Your table is waiting</p>
+            <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Find your way to <span class="text-ember">the flavour.</span></h2>
+            <p class="mt-4 max-w-lg text-sm leading-7 text-muted">Swing by for a freshly grilled favourite, or message us to ask about an order, delivery or catering.</p>
+
+            <div class="mt-8 space-y-6">
+              <div class="flex gap-4"><span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ember/10 text-xl text-ember">⌖</span><div><h3 class="font-bold text-white">Visit us</h3><p class="mt-1 text-sm leading-6 text-muted">Ada-George Road, Rumuepirikom,<br>Port Harcourt, Rivers State</p></div></div>
+              <div class="flex gap-4"><span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ember/10 text-xl text-ember">◷</span><div><h3 class="font-bold text-white">Opening hours</h3><p class="mt-1 text-sm text-muted">Monday – Sunday: 3:00 PM – 10:00 PM</p></div></div>
+              <div class="flex gap-4"><span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ember/10 text-xl text-ember">☎</span><div><h3 class="font-bold text-white">Call us</h3><a class="mt-1 inline-block text-sm text-muted transition hover:text-ember" href="tel:+2348132604853">+234 813 260 4853</a></div></div>
+            </div>
+
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="https://wa.me/2348132604853?text=Hello%20Flip%20Grills%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener noreferrer" class="focus-ring inline-flex items-center justify-center rounded-full bg-ember px-6 py-3.5 text-sm font-extrabold text-ink transition hover:bg-amber-300">Chat on WhatsApp ↗</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Ada-George+Road%2C+Rumuepirikom%2C+Port+Harcourt" target="_blank" rel="noopener noreferrer" class="focus-ring inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-ember hover:text-ember">Get directions ↗</a>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-3xl border border-white/10 bg-ink p-2 shadow-2xl">
+            <div class="relative overflow-hidden rounded-2xl">
+              <iframe title="Map showing Ada-George Road, Rumuepirikom, Port Harcourt" src="https://maps.google.com/maps?q=Ada-George%20Road%2C%20Rumuepirikom%2C%20Port%20Harcourt&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="420" style="border:0; filter: grayscale(1) invert(.88) contrast(.85);" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              <div class="pointer-events-none absolute bottom-4 left-4 rounded-xl border border-white/10 bg-ink/90 px-4 py-3 backdrop-blur"><p class="text-sm font-extrabold text-white">FLIP <span class="text-ember">GRILLS</span></p><p class="mt-1 text-xs text-muted">Ada-George Road, Port Harcourt</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-ink">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+        <div>
+          <a href="#home" class="inline-flex items-center gap-3">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-ember text-ink"><span class="text-xl">♨</span></span>
+            <span class="text-lg font-black tracking-[.12em]">FLIP <span class="text-ember">GRILLS</span></span>
+          </a>
+          <p class="mt-4 max-w-xs text-sm leading-6 text-muted">Charcoal-fired goodness, bold pepper sauce and good times in Port Harcourt.</p>
+        </div>
+        <div><h3 class="text-xs font-extrabold uppercase tracking-[.18em] text-white">Visit</h3><p class="mt-4 text-sm leading-6 text-muted">Ada-George Road,<br>Rumuepirikom, Port Harcourt</p><p class="mt-3 text-sm text-muted">Mon–Sun · 3:00 PM – 10:00 PM</p></div>
+        <div><h3 class="text-xs font-extrabold uppercase tracking-[.18em] text-white">Get in touch</h3><a href="tel:+2348132604853" class="mt-4 block text-sm text-muted hover:text-ember">+234 813 260 4853</a><a href="https://wa.me/2348132604853" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-sm text-ember hover:text-amber-200">WhatsApp us ↗</a></div>
+      </div>
+      <div class="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="current-year"></span> Flip Grills. All rights reserved.</p>
+        <div class="flex gap-6"><button type="button" data-open-modal="privacy" class="focus-ring rounded underline-offset-4 hover:text-ember hover:underline">Privacy Policy</button><button type="button" data-open-modal="terms" class="focus-ring rounded underline-offset-4 hover:text-ember hover:underline">Terms of Service</button></div>
+      </div>
+      <p class="mt-3 text-[10px] leading-5 text-white/30">Demo website concept. Confirm business details, customer reviews, prices and policies before public launch.</p>
+    </div>
+  </footer>
+
+  <!-- Privacy modal -->
+  <div id="privacy-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/80 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="privacy-title" aria-hidden="true">
+    <div class="modal-scroll w-full max-w-2xl rounded-2xl border border-white/10 bg-panel shadow-2xl">
+      <div class="sticky top-0 flex items-center justify-between border-b border-white/10 bg-panel/95 px-6 py-5 backdrop-blur">
+        <div><p class="text-[10px] font-extrabold uppercase tracking-[.2em] text-ember">Flip Grills</p><h2 id="privacy-title" class="mt-1 text-xl font-black text-white">Privacy Policy</h2></div>
+        <button type="button" data-close-modal class="focus-ring grid h-9 w-9 place-items-center rounded-full bg-white/10 text-xl text-white hover:bg-white/20" aria-label="Close privacy policy">×</button>
+      </div>
+      <div class="space-y-5 px-6 py-6 text-sm leading-7 text-muted">
+        <p><strong class="text-white">Demo policy.</strong> This policy is sample website copy and should be reviewed and tailored by Flip Grills before the site is published.</p>
+        <section><h3 class="font-bold text-white">Information you share</h3><p>When you call or contact Flip Grills through WhatsApp, you may choose to share your name, phone number, delivery details and order preferences. Those details are used to respond to your enquiry and process your order.</p></section>
+        <section><h3 class="font-bold text-white">How information is used</h3><p>Information you provide may be used to confirm orders, arrange collection or delivery, answer questions and provide customer support. This demo page does not include an account system or an on-page payment form.</p></section>
+        <section><h3 class="font-bold text-white">Third-party services</h3><p>WhatsApp, Google Maps and the hosting provider operate under their own privacy policies and may collect information when you use their services. Please review their policies before sharing information with them.</p></section>
+        <section><h3 class="font-bold text-white">Data and contact</h3><p>Do not send payment card details or sensitive personal information through this website. For privacy questions or requests relating to information you have shared directly with the restaurant, contact Flip Grills on +234 813 260 4853.</p></section>
+        <p class="text-xs text-white/40">Last updated: November 2026 · Replace this sample policy with an approved business policy.</p>
+      </div>
+      <div class="border-t border-white/10 px-6 py-4 text-right"><button type="button" data-close-modal class="focus-ring rounded-full bg-ember px-5 py-2.5 text-sm font-bold text-ink hover:bg-amber-300">I understand</button></div>
+    </div>
+  </div>
+
+  <!-- Terms modal -->
+  <div id="terms-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/80 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="terms-title" aria-hidden="true">
+    <div class="modal-scroll w-full max-w-2xl rounded-2xl border border-white/10 bg-panel shadow-2xl">
+      <div class="sticky top-0 flex items-center justify-between border-b border-white/10 bg-panel/95 px-6 py-5 backdrop-blur">
+        <div><p class="text-[10px] font-extrabold uppercase tracking-[.2em] text-ember">Flip Grills</p><h2 id="terms-title" class="mt-1 text-xl font-black text-white">Terms of Service</h2></div>
+        <button type="button" data-close-modal class="focus-ring grid h-9 w-9 place-items-center rounded-full bg-white/10 text-xl text-white hover:bg-white/20" aria-label="Close terms of service">×</button>
+      </div>
+      <div class="space-y-5 px-6 py-6 text-sm leading-7 text-muted">
+        <p><strong class="text-white">Demo terms.</strong> These sample terms are provided for the website preview and should be approved and adapted by the business before publication.</p>
+        <section><h3 class="font-bold text-white">Orders and confirmation</h3><p>WhatsApp and phone enquiries are requests, not confirmed orders. An order is accepted only after Flip Grills confirms the items, price, availability and collection or delivery arrangements directly with you.</p></section>
+        <section><h3 class="font-bold text-white">Menu and prices</h3><p>Menu items, portion sizes and prices may change based on availability or business updates. The restaurant should confirm the final price and any applicable delivery fee before you complete an order.</p></section>
+        <section><h3 class="font-bold text-white">Food and allergens</h3><p>Tell the restaurant about allergies or dietary requirements before ordering. Food is prepared in a kitchen that may handle common allergens, and the restaurant should confirm whether a request can be accommodated.</p></section>
+        <section><h3 class="font-bold text-white">Opening hours and availability</h3><p>The hours shown on this demo are Monday to Sunday, 3:00 PM to 10:00 PM. Hours, seating, delivery and catering availability may change; please contact the restaurant to confirm.</p></section>
+        <section><h3 class="font-bold text-white">Website use</h3><p>Please use the website lawfully and do not attempt to disrupt its operation. External links, including WhatsApp and Google Maps, are provided for convenience and are governed by the third parties' own terms.</p></section>
+        <p class="text-xs text-white/40">Last updated: November 2026 · Replace this sample text with approved terms before launch.</p>
+      </div>
+      <div class="border-t border-white/10 px-6 py-4 text-right"><button type="button" data-close-modal class="focus-ring rounded-full bg-ember px-5 py-2.5 text-sm font-bold text-ink hover:bg-amber-300">Close</button></div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      mobileMenu.classList.toggle('hidden', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation menu');
+    }));
+
+    // Footer year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Accessible Privacy Policy and Terms modals
+    let lastFocusedElement = null;
+    let activeModal = null;
+
+    function openModal(name) {
+      const modal = document.getElementById(name + '-modal');
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      activeModal = modal;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const firstButton = modal.querySelector('button');
+      if (firstButton) firstButton.focus();
+    }
+
+    function closeModal() {
+      if (!activeModal) return;
+      activeModal.classList.add('hidden');
+      activeModal.classList.remove('flex');
+      activeModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeModal = null;
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(button => {
+      button.addEventListener('click', () => openModal(button.dataset.openModal));
+    });
+    document.querySelectorAll('[data-close-modal]').forEach(button => {
+      button.addEventListener('click', closeModal);
+    });
+    document.querySelectorAll('[role="dialog"]').forEach(modal => {
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal();
+      });
+    });
+    document.addEventListener('keydown', event => {
+      if (!activeModal) return;
+      if (event.key === 'Escape') closeModal();
+      if (event.key === 'Tab') {
+        const focusable = [...activeModal.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])')]
+          .filter(element => !element.hasAttribute('disabled'));
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
